@@ -25,7 +25,7 @@ app.get("/", (req, res)=>{
 
 (async ()=>{
     try {
-        const connection = await mongoose.connect("mongodb+srv://eren28:28eren57@cluster0.n2gcnhz.mongodb.net/blogDatabases?retryWrites=true&w=majority&appName=Cluster0");
+        const connection = await mongoose.connect(process.env.MONGODB_URI);
         if (connection.STATES.connected == 1) {
             console.log("Connection is Successfully");
             app.listen(process.env.PORT, ()=>{
